@@ -8,13 +8,15 @@ defmodule QiriaServer.Application do
   def start(_type, _args) do
     children = [
       # Start the Telemetry supervisor
-      Client.RestAPI.Telemetry,
+      Client.Web.Telemetry,
       # Start the PubSub system
-      {Phoenix.PubSub, name: RestApi.PubSub},
+      {Phoenix.PubSub, name: Web.PubSub},
       # Start the Endpoint (http/https)
-      Client.RestAPI.Endpoint
+      Client.Web.Endpoint,
+      Client.QiriaGraphQL.Endpoint,
       # Starts a worker by calling: QiriaServer.Worker.start_link(arg)
       # {QiriaServer.Worker, arg}
+      Infrastructure.Persistence.Repo
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
@@ -26,7 +28,8 @@ defmodule QiriaServer.Application do
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    Client.RestAPI.Endpoint.config_change(changed, removed)
+    Client.Web.Endpoint.config_change(changed, removed)
+    Client.QiriaGraphQL.Endpoint.config_change(changed, removed)
     :ok
   end
 end

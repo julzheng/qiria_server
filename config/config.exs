@@ -1,23 +1,36 @@
 import Config
 
-config :qiria, ecto_repos: [Infrastructure.Persistence.MariaDB.Repo]
+config :logger,
+  backends: [:console],
+  compile_time_purge_matching: [
+    [level_lower_than: :info]
+  ]
 
-config :qiria, Client.QiriaGraphQL.Endpoint, server: true
+config :qiria, env: Mix.env()
+
+config :qiria, ecto_repos: [Infrastructure.Persistence.Repo]
+
+config :qiria, Client.QiriaGraphQL.Endpoint,
+  server: true,
+  secret_key_base: "TuEA2Ia0wcMZ8QXZlvGBOKCKpEQjk9V3vW5AYuAAfkpecTqZIdZYzAd7y3CmjiJK"
+
 #       render_errors: [accepts: ~w(json)]
 
 config :qiria,
-       Client.RestAPI.Endpoint,
+       Client.Web.Endpoint,
        server: true,
        render_errors: [
-         view: Client.RestAPI.ErrorView,
+         view: Client.Web.ErrorView,
          accepts: ~w(json),
          layout: false
        ],
-       secret_key_base: "TuEA2Ia0wcMZ8QXZlvGBOKCKpEQjk9V3vW5AYuAAfkpecTqZIdZYzAd7y3CmjiJK"
+       secret_key_base: "TuEA2Ia0wcMZ8QXZlvGBOKCKpEQjk9V3vW5AYuAAfkpecTqZIdZYzAd7y3CmjiJK",
+       live_view: [signing_salt: "Frlx2pECXUe4SQOh"],
+       pubsub_server: Web.PubSub
 
 config :qiria, :pow,
-       user: Infrastructure.Persistence.MariaDB.Schema.Auth,
-       repo: Infrastructure.Persistence.MariaDB.Repo
+  user: Infrastructure.Persistence.Schema.Auth,
+  repo: Infrastructure.Persistence.Repo
 
 config :phoenix, :json_library, Jason
 

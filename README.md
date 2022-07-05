@@ -1,21 +1,10 @@
 # QiriaServer
 
-**TODO: Add description**
+The repository above is organized using a mix of DDD and Modified Explicit Architecture, of which you can read in this [article](https://julianzheng.com/2022/06/17/applying-the-concept-of-ddd-and-slightly-modified-explicit-archicture-using-elixir/)
 
-## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `qiria_server` to your list of dependencies in `mix.exs`:
 
-```elixir
-def deps do
-  [
-    {:qiria_server, "~> 0.1.0"}
-  ]
-end
-```
+📝 **TO DO**
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/qiria_server](https://hexdocs.pm/qiria_server).
-
+- [ ] BDD layer for User Acceptance Testing (Domain Layer testing)
+- [ ] Domain + Application layer testing
