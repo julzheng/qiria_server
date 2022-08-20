@@ -42,6 +42,7 @@ defmodule QiriaServer.MixProject do
       {:jason, "~> 1.0"},
       {:jose, "~> 1.11.2"},
       {:kaur, "~> 1.1.0"},
+      {:mox, "~> 1.0", only: :test},
       {:myxql, "~> 0.5.0"},
       {:phoenix, "~> 1.5.10"},
       {:phoenix_live_dashboard, "~> 0.4"},

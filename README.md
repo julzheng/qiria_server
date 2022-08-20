@@ -6,5 +6,5 @@ The repository above is organized using a mix of DDD and Modified Explicit Archi
 
 📝 **TO DO**
 
-- [ ] BDD layer for User Acceptance Testing (Domain Layer testing)
-- [ ] Domain + Application layer testing
+- ☐ BDD layer for User Acceptance Testing (Domain Layer testing)
+- ✅ Domain + Application layer testing
