@@ -36,4 +36,4 @@ rest_api-*.tar
 *.iml
 
 # Ignore secret, environment variables
-**/*.secret.exs
+#**/*.secret.exs
