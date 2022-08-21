@@ -34,6 +34,7 @@ defmodule QiriaServer.MixProject do
       {:absinthe, "~> 1.6"},
       {:absinthe_plug, "~> 1.5"},
       {:argon2_elixir, "~> 2.4"},
+      {:cabbage, "~> 0.3.0"},
       {:corsica, "~> 1.0"},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:ecto_morph, "~> 0.1.25"},

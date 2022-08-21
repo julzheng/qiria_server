@@ -7,7 +7,7 @@ defmodule Qiria.Account do
   alias Qiria.Account.Application.User
 
   @spec register_account(User.t()) ::
-          {:ok, User.t()} | {:error, :email_already_registered}
+          {:ok, User.t()} | {:error, :email_is_already_registered}
   def register_account(user) do
     current_impl().register_account(user)
   end
